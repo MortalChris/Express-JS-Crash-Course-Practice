@@ -1,5 +1,7 @@
 const express = require('express');
 const path = require('path');
+const messages = require('./messages.js')
+
 // //Init express
 const app = express();
 const port = process.env.PORT || 3000;
@@ -10,7 +12,13 @@ const port = process.env.PORT || 3000;
 //     res.sendFile(path.join(__dirname, 'public', 'index.html'));//public is the name of the foler, index.html is the file within
 // });
 
-//Set Static folder
+
+// app.use('/api/messages', (req, res) => { //Gets all Messages from messages.js
+//     res.join(messages);
+// });
+
+
+//Set Static folder    seems to reference one folder and anything in that folder becomes a page
 app.use(express.static(path.join(__dirname, 'public')));
 
 // //Listen on Port
